@@ -26,6 +26,7 @@ select {
   justify-content: space-between;
   padding: 30px 0;
   border-bottom: 1px dotted #6d6592;
+  font-size: 20px;
 }
 .city:last-child {
   border-bottom: none;
@@ -42,6 +43,7 @@ select {
 
 .date {
   opacity: 0.7;
+  font-size: 18px;
 }
 .container {
   max-width: 600px;

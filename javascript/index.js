@@ -6,11 +6,13 @@ function updateTime() {
     let losAngelesDateElement = losAngelesElement.querySelector(".date");
     let losAngelesTimeElement = losAngelesElement.querySelector(".time");
     let losAngelesTime = moment().tz("America/Los_Angeles");
+
     losAngelesDateElement.innerHTML = losAngelesTime.format("MMMM D YYYY");
     losAngelesTimeElement.innerHTML = losAngelesTime.format(
       "h:mm:ss [<small>]A[</small>]"
     );
   }
+
   //Paris Time Zone
 
   let parisElement = document.querySelector("#paris");
@@ -18,6 +20,7 @@ function updateTime() {
     let parisDateElement = parisElement.querySelector(".date");
     let parisTimeElement = parisElement.querySelector(".time");
     let parisTime = moment().tz("Europe/Paris");
+
     parisDateElement.innerHTML = parisTime.format("MMMM D YYYY");
     parisTimeElement.innerHTML = parisTime.format(
       "h:mm:ss [<small>]A[</small>]"
@@ -27,6 +30,10 @@ function updateTime() {
 function updateCity(event) {
   let cityTimeZone = event.target.value;
   // console.log(cityTimeZone);
+  if (cityTimeZone === "current") {
+    cityTimeZone = moment.tz.guess();
+  }
+
   let cityName = cityTimeZone.replace("_", "").split("/")[1];
   let cityTime = moment().tz(cityTimeZone);
   // console.log(cityTime.format("MMMM D YYYY"));
